@@ -1,0 +1,51 @@
+      body { 
+        background: url("https://webrtcofficial-nguyentienthao96.c9users.io/images/tulips-2048324.jpg") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        font-family:"Arial";
+        color: white;
+        background-size: 100% 100%;
+
+      }
+
+      .loginBox {
+        max-width:100%;
+        width: 500px
+      }
+      
+      .stretch input  {
+        width: 100%
+      }
+      h1{
+        font-weight: normal;
+        padding-left:10%;
+        padding-top:7%;
+      }
+      h2{
+        font-weight: normal;
+        padding-left:10%;
+      }
+
+      #content{
+        padding-top:5%;
+        color:white;
+        text-align:center;
+      }
+      .icon{
+        margin:30px 0px 0px 0px;
+        /*padding:20px 0px 0px 0px;*/
+        width: 2.5em;
+        height: 2.5em;
+      }
+      
+      .cycles{
+        width:100px;
+        height:100px;
+        border-style:solid;
+        border-color:#0F71D3;
+        border-radius: 50%;
+      }
+      a:hover { 
+          background-color: yellow;
+      }

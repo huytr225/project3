@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>BK-RTC | Login</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="landing-page/css/font-awesome.min.css">
+    <link rel="stylesheet" href="landing-page/css/animate.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700'
+          rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="landing-page/css/bootstrap.min.css">
+    <link rel="stylesheet" href="landing-page/css/main.css">
+    <link rel="stylesheet" href="landing-page/login-modal/css/style.css"  type='text/css'>
+    <link rel="stylesheet" href="landing-page/css/custom.css">
+
+    <script src="landing-page/js/modernizr-2.7.1.js"></script>
+
+</head>
+
+<body>
+  <script type="text/javascript">
+     user_name="<%= user_name %>";
+     type="<%= type %>";
+     id="<%= id %>";
+    console.log("name",user_name);
+    console.log("type",type);
+    console.log("id",id);
+  </script>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="logo" href="index.html">BK-RTC</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="javascript:;" class="btn-signup">Sign up</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<header>
+    <div class="md-sidenav-backdrop md-opaque" style="background-color: rgba(33,33,33,1.0);opacity: .38;"></div>
+    <div class="cd-bg-video-wrapper" data-video="videos/video" style="display: block;">
+        <video loop muted autoplay>
+            <source src="/landing-page/videoplayback.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="overlay-video-header"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 higher-z-axis">
+                <a href="index.html" class="logo">BK-RTC</a>
+            </div>
+            <div class="col-xs-6 text-right navbar-nav higher-z-axis">
+                <!--<a href="#pricing" class="scroll">Pricing</a>&nbsp; &nbsp;-->
+                <a href="javascript:;" class="btn-signup">Sign up</a>
+            </div>
+        </div>
+        <div class="row header-info higher-z-axis">
+            <div class="col-sm-10 col-sm-offset-1 text-center">
+                <h1 class="wow bounceInRight">Welcome to gia sản chat</h1>
+                <br/>
+                <p class="lead wow fadeIn" data-wow-delay="0.5s">Just choose 2 type below</p>
+                <br/>
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                        <div class="row">
+                            <div class="col-xs-12 text-center wow fadeInUp" data-wow-delay="1s">
+                                <a style="margin: 10px;" href="/app" class="btn btn-secondary btn-lg btn-signin">Khách</a>
+                                <a href="javascript:;" class="btn btn-secondary btn-lg btn-signin">Tư vấn viên</a>
+                            </div>
+                        </div><!--End Button Row-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                        <div class="row">
+                            <div class="col-xs-12 text-center wow fadeInUp" data-wow-delay="1s">
+                                
+                            </div>
+                        </div><!--End Button Row-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<!-- Modal -->
+<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+    <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+        <ul class="cd-switcher">
+            <li><a href="#0">Sign in</a></li>
+            <li><a href="#0">New account</a></li>
+        </ul>
+
+        <div id="cd-login"> <!-- log in form -->
+            <form class="cd-form" action="/users/login" method="post">
+                <p class="fieldset">
+                    <label class="image-replace cd-email" for="signin-email">E-mail</label>
+                    <input class="full-width has-padding has-border" id="signin-email" type="email" name="email" placeholder="E-mail">
+                    <span class="cd-error-message">Error message here!</span>
+                </p>
+
+                <p class="fieldset">
+                    <label class="image-replace cd-password" for="signin-password">Password</label>
+                    <input class="full-width has-padding has-border" id="signin-password" type="password" name="password"  placeholder="Password">
+                    <a href="#0" class="hide-password">Hide</a>
+                    <span class="cd-error-message">Error message here!</span>
+                </p>
+
+
+                <p class="fieldset">
+                    <button class="full-width" type="submit" value="Login"> Login </button>
+                </p>
+                <p class="fieldset" style="backgroudcolor:#1DA1F2">
+                    <a class="btn btn-block btn-social btn-facebook" href="/users/auth/twitter" >
+                        <span class="fa fa-twitter"></span> Sign in with Twitter
+                    </a>
+                </p>
+            </form>
+
+        </div> <!-- cd-login -->
+
+        <div id="cd-signup"> <!-- sign up form -->
+          <form class="cd-form"  action="/users/signup" method="post">
+    				<p class="fieldset">
+    					<label class="image-replace cd-username" for="signup-username">Username</label>
+    					<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username"  name="user_name">
+
+    				</p>
+
+    				<p class="fieldset">
+    					<label class="image-replace cd-email" for="signup-email">E-mail</label>
+    					<input class="full-width has-padding has-border" id="signup-email" type="email" name="email" placeholder="E-mail">
+
+    				</p>
+
+    				<p class="fieldset">
+    					<label class="image-replace cd-password" for="signup-password">Password</label>
+    					<input class="full-width has-padding has-border" id="signup-password" type="password" name="password"  placeholder="Password">
+    					<a href="#0" class="hide-password">Hide</a>
+
+    				</p>
+
+    				<p class="fieldset">
+    					<button class="full-width has-padding" type="submit" value="Create account">Create account</button>
+    				</p>
+    			</form>
+
+
+        </div>
+
+
+        <a href="#0" class="cd-close-form">Close</a>
+    </div>
+</div>
+
+<script>window.jQuery || document.write('<script src="landing-page/js/jquery-1.11.0.min.js"><\/script>')</script>
+<script src="landing-page/js/wow.min.js"></script>
+<script src="landing-page/js/bootstrap.min.js"></script>
+<script src="landing-page/js/main.js"></script>
+
+</body>
+</html>

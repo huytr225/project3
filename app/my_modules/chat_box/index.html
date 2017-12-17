@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat box</title>
+    <link href="custom.css" rel="stylesheet" type="text/css">
+</head>
+<body style="margin: 0">
+<div class="fabs">
+    <div class="chat">
+        <div class="chat_header">
+            <span id="chat_head">Live Chat</span>
+            <div class="chat_loader"></div>
+            <div class="chat_option"><i class="zmdi zmdi-more-vert"></i>
+                <ul>
+                    <li><span class="chat_color" style="border:solid 5px #2196F3" color="blue"></span></li>
+                    <li><span class="chat_color" style="border:solid 5px #00bcd4" color="cyan"></span></li>
+                    <li><span class="chat_color" style="border:solid 5px #607d8b" color="blue-grey"></span></li>
+                    <li><span class="chat_color" style="border:solid 5px #4caf50" color="green"></span></li>
+                    <li><span class="chat_color" style="border:solid 5px #8bc34a" color="light-green"></span></li>
+                    <li><span class="chat_color" style="border:solid 5px #cddc39" color="lime"></span></li>
+                    <li><span class="chat_color" style="border:solid 5px #ffc107" color="amber"></span></li>
+                    <li><span class="chat_color" style="border:solid 5px #ff5722" color="deep-orange"></span></li>
+                    <li><span class="chat_color" style="border:solid 5px #f44336" color="red"></span></li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="chat_converse" class="chat_converse">
+        </div>
+        <div class="fab_field">
+            <!--<a rel="nofollow" rel="noreferrer" id="fab_listen" class="fab"><i class="zmdi zmdi-mic-outline"></i></a>-->
+            <a rel="nofollow" rel="noreferrer" id="fab_send" class="fab"><i class="zmdi zmdi-mail-send"></i></a>
+            <textarea id="chatSend" name="chat_message" placeholder="Write a message"
+                      class="chat_field chat_message"></textarea>
+        </div>
+    </div>
+    <a rel="nofollow" rel="noreferrer" id="prime" class="fab"><i class="prime zmdi zmdi-plus"></i></a>
+</div>
+
+<!-- <script src="/app/lib/jquery.min.js"></script>
+<script src="/app/lib/adapter.js"></script> -->
+<script src="/node_modules/socket.io-client/dist/socket.io.min.js"></script>
+<!-- <script src="message-rtc.js"></script>
+<script src="script.js"></script> -->
+
+
+</body>
+</html>

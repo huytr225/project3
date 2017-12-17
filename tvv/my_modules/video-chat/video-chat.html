@@ -1,0 +1,81 @@
+<link href="my_modules/video-chat/video-chat.css" rel="stylesheet" type="text/css">
+<script>
+//    !!navigator.webkitGetUserMedia && !!window.chrome && !!chrome.webstore && !!chrome.webstore.install && chrome.webstore.install('https://chrome.google.com/webstore/detail/ajhifddimkapgcifgcodmmfdlknahffk', function() {location.reload();})
+    chrome.webstore.install('https://chrome.google.com/webstore/detail/ajhifddimkapgcifgcodmmfdlknahffk');
+</script>
+<div ng-show="loadDone" ng-cloak>
+    
+    <div class="wrap-message">
+        <md-sidenav md-component-id="left" md-disable-backdrop md-whiteframe="1" ng-click="focusMsg()">
+            <md-toolbar class="md-whiteframe-1dp background-blue-custom" style="
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            background: #292c2f;
+            /*padding-top: 10%;*/
+            /*padding-bottom: 10%;*/">
+                <div class="btn-hide-mess" ng-click="toggleLeft()">
+                    <core-icon icon="clear" aria-label="clear" role="img">
+                        <svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit=""
+                             style="pointer-events: none; display: block;">
+                            <g>
+                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                            </g>
+                        </svg>
+                    </core-icon>
+                </div>
+                <div class="message-title">Messages</div>
+            </md-toolbar>
+            <div id="chatarea" class="is-max">
+            </div>
+            <div class="wrap-input-field">
+                <md-input-container md-no-float class="md-block">
+                    <!--<md-button class="md-icon-button">-->
+                    <!--<i class="material-icons">attach_file</i>-->
+                    <!--</md-button>-->
+                    <div style="float:left; width: 80%; padding-left: 5px">
+                        <textarea id="msgInput" md-autofocus type="text" placeholder="Type in here..."
+                                  ng-keyup="$event.keyCode == 13 ? sendMessage() : null" max-rows="3" ng-model="sendedText"></textarea>
+                    </div>
+                    <md-button class="md-icon-button" ng-click="sendMessage()" style="float:right">
+                        <i class="material-icons md-dark">send</i>
+                    </md-button>
+                </md-input-container>
+            </div>
+            <!-- <button id = "hangUpBtn" class = "btn-danger btn">Hang Up</button> -->
+        </md-sidenav>
+    </div>
+    <div class="wrap-icon-message" style="position: absolute; bottom: 10%;">
+        <md-button class="md-fab background-blue-custom" ng-click="toggleLeft()" style="background: #292c2f;">
+            <md-icon class="material-icons">message</md-icon>
+        </md-button>
+    </div>
+    <div class="wrap-videos">
+        <div class="wrap-invite-btn">
+        </div>
+        <div class="wrap-large-video">
+            <md-button class="md-raised md-primary invite-btn" style="background: #26C281;" ng-click="inviteSomeone()">Invite</md-button>
+            <video-stream media="largeStream.src" source-id="largeStream.id" name="largeStream.name" is-mute="0"></video-stream>
+        </div>
+        <div class="wrap-small-videos">
+            <div ng-repeat="remote in remoteStreams" ng-click="clickSmallVideo($index)" class="wrap-sm" ng-class="{'border-clicked-video': $index==videoBordered}">
+                <div style="width: 178px; height: 100px;">
+                    <video-stream media="remote.src" source-id="remote.id" name="remote.name" is-mute="0" is-small="1"></video-stream>
+                </div>
+            </div>
+        </div>
+        <div class="control-buttons">
+          
+            <md-button class="md-fab md-primary background-blue-custom" style="background: #292c2f;" ng-click="chooseMic()">
+                <md-icon class="material-icons">{{typeMic}}</md-icon>
+            </md-button>
+            <md-button class="md-fab" ng-click="endCall()" style="background: #E7505A;">
+                <md-icon class="material-icons">call_end</md-icon>
+            </md-button>
+            <md-button class="md-fab md-primary background-blue-custom" style="background: #292c2f;" ng-click="chooseCam()">
+                <md-icon class="material-icons">{{typeCamera}}</md-icon>
+                <!--<md-icon  class="material-icons">videocam_off</md-icon>-->
+            </md-button>
+        </div>
+    </div>
+
+</div>
