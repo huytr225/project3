@@ -1,14 +1,9 @@
+console.log(0)
 var MessageRTC = function () {
     'use strict';
-    // var configuration = {
-//   'iceServers': [{
-//     'url': 'stun:stun.l.google.com:19302'
-//   }]
-// };
-// {'url':'stun:stun.services.mozilla.com'}
-    
+
     var SERVER_URL = null;
-    var configuration = { 
+    var configuration = {
         'iceServers': [
             {urls: 'stun:stun.l.google.com:19302'},
             {
@@ -28,7 +23,7 @@ var MessageRTC = function () {
             }
         ]
     };
-        
+
     var offerOptions= null;
     var connected = false,
         peerConnections = [];
@@ -178,3 +173,5 @@ var MessageRTC = function () {
     }
 
 }();
+
+

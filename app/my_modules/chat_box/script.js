@@ -1,4 +1,4 @@
-var userName = localStorage.getItem('user_name');
+var user_name;
 var ChatHandler = function () {
     return {
         initChat:function () {
@@ -127,7 +127,7 @@ var ChatHandler = function () {
 
         // send message
         var mess = {
-            name:userName,
+            name:user_name,
             text:text
         };
         MessageRTC.sendMessage(mess);
@@ -185,7 +185,7 @@ var chat = {
       this.scrollToBottom();
       if (this.messageToSend.trim() !== '') {
         var template = Handlebars.compile( $("#message-template").html());
-        var context = { 
+        var context = {
           messageOutput: this.messageToSend,
           time: this.getCurrentTime()
         };
@@ -193,17 +193,17 @@ var chat = {
         this.$chatHistoryList.append(template(context));
         this.scrollToBottom();
         this.$textarea.val('');
-        
+
       }
-      
+
     },
-    
+
     addMessage: function() {
       this.messageToSend = this.$textarea.val()
       this.render();
       // send message
         var mess = {
-            name:userName,
+            name: user_name,
             text: this.messageToSend
         };
         console.log(mess);
@@ -211,13 +211,13 @@ var chat = {
     },
     anotherSend: function(text, author){
       var templateResponse = Handlebars.compile( $("#message-response-template").html());
-      var contextResponse = { 
+      var contextResponse = {
         response: text,
         time: this.getCurrentTime()
       };
       this.$chatHistoryList.append(templateResponse(contextResponse));
-      this.scrollToBottom(); 
-      
+      this.scrollToBottom();
+
     },
     addMessageEnter: function(event) {
         // enter was pressed
@@ -235,25 +235,32 @@ var chat = {
     getRandomItem: function(arr) {
       return arr[Math.floor(Math.random()*arr.length)];
     }
-    
+
 };
 
 jQuery(document).ready(function () {
-    // console.log("script.js")
-    ChatHandler.initChat();
-    ChatHandler.toggleFab();
-    ChatHandler.loadBeat(false);
-    ChatHandler.hideChat(false);
-    // chat.init();
+    console.log(9)
+    $.get("/users",function(data) {
+        user_name = data.user_name;
+           if(user_name ==  'guest'){
+               ChatHandler.initChat();
+               ChatHandler.toggleFab();
+               ChatHandler.loadBeat(false);
+               ChatHandler.hideChat(false);
+           } else {
+               chat.init();
+           }
+        }
+    );
+
     var roomId = gup('id', window.top.location.href);
     MessageRTC.init();
-    // console.log("hi")
+    console.log(10)
     if(!roomId){
+        console.log(11)
         var create = MessageRTC.create();
         create.then(function (r,ownerId) {
-            // userName = ownerId;
             roomId = r;
-            // window.top.history.pushState('','','chat?id='+roomId);
             var myCustomData =  {roomId: r};
             var event = new CustomEvent('triggerRoomId', { detail: myCustomData });
             window.parent.document.dispatchEvent(event)
@@ -278,6 +285,11 @@ function gup(name, url){
 
 $(document).bind('peerMessage',function (ev,dat) {
     var data = dat.data;
-    ChatHandler.anotherSend(data['text'] , data['name']);
-    chat.anotherSend(data['text'] , data['name']);
+    if(user_name ==  'guest'){
+        ChatHandler.anotherSend(data['text'] , data['name']);
+    } else {
+        chat.anotherSend(data['text'] , data['name']);
+    }
+
+
 });

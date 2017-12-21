@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
   } else {
     user_name_global = "guest";
   }
-
-  res.json({user_name: user_name_global});
+  var ip = req.clientIp;
+  res.json({user_name: user_name_global, ip: ip});
 });
 
 router.get('/login',isLoggedIn,function(req,res,next){

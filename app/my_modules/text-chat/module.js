@@ -24,6 +24,15 @@
                         templateUrl: 'my_modules/text-chat/text-chat.html'
                     }
                 }
+            })
+            .state('chat-history', {
+                parent: 'index',
+                views: {
+                    'chatHistory@index': {
+                        templateUrl: 'my_modules/text-chat/text-chat-history.html',
+                        controller: 'TextChatController'
+                    }
+                }
             });
     }
 })();

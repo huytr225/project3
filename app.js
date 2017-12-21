@@ -9,7 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 var flash = require('connect-flash');
 var session = require('express-session');
-
+var requestIp = require('request-ip');
 var os = require('os');
 
 var userIds = {};
@@ -28,6 +28,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 var flash = require('connect-flash');
 var session = require('express-session');
+var requestIp = require('request-ip');
 
 
 require('./config/passport')(passport);
@@ -43,6 +44,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(requestIp.mw())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/app/video', express.static(path.join(__dirname, 'public')));
 app.use('/app/chat', express.static(path.join(__dirname, 'public')));

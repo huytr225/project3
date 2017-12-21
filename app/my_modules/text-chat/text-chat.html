@@ -1,5 +1,7 @@
+
 <link href="my_modules/text-chat/text-chat.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 <div ng-show="loadDone" ng-cloak>
     <div class="wrap-content">
         <div class="wrap-image">
@@ -34,228 +36,146 @@
                     <div class="text-control">Messages</div>
                 </li>
             </ul>
-            <div id="users">
-              <input class="search" placeholder="Search" />
-              <button class="sort" data-sort="name">
-                Sort by name
-              </button>
             
-              <ul class="list">
-                <li>
-                  <h3 class="name">Jonny Stromberg</h3>
-                  <p class="born">1986</p>
-                </li>
-                <li>
-                  <h3 class="name">Jonas Arnklint</h3>
-                  <p class="born">1985</p>
-                </li>
-                <li>
-                  <h3 class="name">Martina Elm</h3>
-                  <p class="born">1986</p>
-                </li>
-                <li>
-                  <h3 class="name">Gustaf Lindqvist</h3>
-                  <p class="born">1983</p>
-                </li>
-              </ul>
-            
-            </div>
         </div >
     </div>
     <div class="wrap-actions" ng-if="user != 'guest'">
         <div class="wrap-actions-2">
           <div class="container clearfix">
-          <div class="people-list" id="people-list">
-        <div class="search">
-          <input type="text" placeholder="search" />
-          <i class="fa fa-search"></i>
-        </div>
-        <ul class="list">
-          <li class="clearfix" role="button" ng-click="toggleMessage();disableChat = true;" class="wrap-icon"
-                           ng-disabled="disableChat">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Vincent Porter</div>
-              <div class="status">
-                <i class="fa fa-circle online"></i> online
+            <div class="people-list" id="people-list">
+              <div class="search">
+                <input type="text" placeholder="search" />
+                <i class="fa fa-search"></i>
               </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Aiden Chavez</div>
-              <div class="status">
-                <i class="fa fa-circle offline"></i> left 7 mins ago
-              </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Mike Thomas</div>
-              <div class="status">
-                <i class="fa fa-circle online"></i> online
-              </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_04.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Erica Hughes</div>
-              <div class="status">
-                <i class="fa fa-circle online"></i> online
-              </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_05.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Ginger Johnston</div>
-              <div class="status">
-                <i class="fa fa-circle online"></i> online
-              </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_06.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Tracy Carpenter</div>
-              <div class="status">
-                <i class="fa fa-circle offline"></i> left 30 mins ago
-              </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_07.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Christian Kelly</div>
-              <div class="status">
-                <i class="fa fa-circle offline"></i> left 10 hours ago
-              </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_08.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Monica Ward</div>
-              <div class="status">
-                <i class="fa fa-circle online"></i> online
-              </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_09.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Dean Henry</div>
-              <div class="status">
-                <i class="fa fa-circle offline"></i> offline since Oct 28
-              </div>
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_10.jpg" alt="avatar" />
-            <div class="about">
-              <div class="name">Peyton Mckinney</div>
-              <div class="status">
-                <i class="fa fa-circle online"></i> online
-              </div>
-            </div>
-          </li>
-        </ul>
-        </div>
-      
-        <div class="chat">
-        <div class="chat-header clearfix">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
-          
-          <div class="chat-about">
-            <div class="chat-with">Chat with Vincent Porter</div>
-            <div class="chat-num-messages">already 1 902 messages</div>
-          </div>
-          <i class="fa fa-star"></i>
-        </div> <!-- end chat-header -->
-        
-        <div class="chat-history">
-          <ul>
-            <li class="clearfix">
-              <div class="message-data align-right">
-                <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
-                <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
-                
-              </div>
-              <div class="message other-message float-right">
-                Hi Vincent, how are you? How is the project coming along?
-              </div>
-            </li>
-            
-            <li>
-              <div class="message-data">
-                <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
-                <span class="message-data-time">10:12 AM, Today</span>
-              </div>
-              <div class="message my-message">
-                Are we meeting today? Project has been already finished and I have results to show you.
-              </div>
-            </li>
-            
-            <li class="clearfix">
-              <div class="message-data align-right">
-                <span class="message-data-time" >10:14 AM, Today</span> &nbsp; &nbsp;
-                <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
-                
-              </div>
-              <div class="message other-message float-right">
-                Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?
-              </div>
-            </li>
-            
-            <li>
-              <div class="message-data">
-                <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
-                <span class="message-data-time">10:20 AM, Today</span>
-              </div>
-              <div class="message my-message">
-                Actually everything was fine. I'm very excited to show this to our team.
-              </div>
-            </li>
-            
-            <li>
-              <div class="message-data">
-                <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
-                <span class="message-data-time">10:31 AM, Today</span>
-              </div>
-              <i class="fa fa-circle online"></i>
-              <i class="fa fa-circle online" style="color: #AED2A6"></i>
-              <i class="fa fa-circle online" style="color:#DAE9DA"></i>
-            </li>
-            
-          </ul>
-          
-        </div> <!-- end chat-history -->
-        
-        <div class="chat-message clearfix">
-          <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
-                  
-          <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-          <i class="fa fa-file-image-o"></i>
-          
-          <button>Send</button>
+              <ul class="list">
+                <li class="clearfix" role="button" ui-sref="chat-history" ng-click="loadChat();" class="wrap-icon">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Vincent Porter</div>
+                    <div class="status">
+                      <i class="fa fa-circle online"></i> online
+                    </div>
+                  </div>
+                </li>
 
-        </div> <!-- end chat-message -->
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Aiden Chavez</div>
+                    <div class="status">
+                      <i class="fa fa-circle offline"></i> left 7 mins ago
+                    </div>
+                  </div>
+                </li>
+
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Mike Thomas</div>
+                    <div class="status">
+                      <i class="fa fa-circle online"></i> online
+                    </div>
+                  </div>
+                </li>
+
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_04.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Erica Hughes</div>
+                    <div class="status">
+                      <i class="fa fa-circle online"></i> online
+                    </div>
+                  </div>
+                </li>
+
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_05.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Ginger Johnston</div>
+                    <div class="status">
+                      <i class="fa fa-circle online"></i> online
+                    </div>
+                  </div>
+                </li>
+
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_06.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Tracy Carpenter</div>
+                    <div class="status">
+                      <i class="fa fa-circle offline"></i> left 30 mins ago
+                    </div>
+                  </div>
+                </li>
+
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_07.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Christian Kelly</div>
+                    <div class="status">
+                      <i class="fa fa-circle offline"></i> left 10 hours ago
+                    </div>
+                  </div>
+                </li>
+
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_08.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Monica Ward</div>
+                    <div class="status">
+                      <i class="fa fa-circle online"></i> online
+                    </div>
+                  </div>
+                </li>
+
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_09.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Dean Henry</div>
+                    <div class="status">
+                      <i class="fa fa-circle offline"></i> offline since Oct 28
+                    </div>
+                  </div>
+                </li>
+
+                <li class="clearfix">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_10.jpg" alt="avatar" />
+                  <div class="about">
+                    <div class="name">Peyton Mckinney</div>
+                    <div class="status">
+                      <i class="fa fa-circle online"></i> online
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="chat">
+              <div class="chat-header clearfix">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+
+                <div class="chat-about">
+                  <div class="chat-with">Chat with Vincent Porter</div>
+                  <div class="chat-num-messages">already 1 902 messages</div>
+                </div>
+                <i class="fa fa-star"></i>
+              </div> <!-- end chat-header -->
+              <div ui-view="chatHistory" class="chat-history"></div>
+
+
+              <div class="chat-message clearfix">
+                <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+
+                <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-file-image-o"></i>
+
+                <button>Send</button>
+
+              </div> <!-- end chat-message -->
+
+              </div> <!-- end chat -->
         
-        </div> <!-- end chat -->
-      
-        </div>
+          </div>
         </div>
     </div>
 </div>
@@ -285,6 +205,5 @@
   </li>
 </script>
 
-<script type="text/javascript" src="/app/my_modules/text-chat/text-chat.js"></script>
-<script src="/app/my_modules/chat_box/message-rtc.js"></script>
-<script src="/app/my_modules/chat_box/script.js"></script>
+<script src="/node_modules/socket.io-client/dist/socket.io.min.js" ></script>
+<script src="/app/my_modules/chat_box/message-rtc.js" ></script>

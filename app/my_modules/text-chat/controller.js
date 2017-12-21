@@ -11,30 +11,17 @@
                   
                   $window.localStorage.setItem('user', result.user_name);
                   $rootScope.user = result.user_name;
+
               }).error(function (err) {
                 console.log("Error: ", err);
               });
+                
+            $scope.loadChat = function () {
+                $.getScript( '/app/my_modules/chat_box/script.js', function( data, textStatus, jqxhr ) {
+                } );
+            }
 
-            var searchFilter = {
-                options: { valueNames: ['name'] },
-                init: function() {
-                  var userList = new List('people-list', this.options);
-                  var noItems = $('<li id="no-items-found">No items found</li>');
-                  
-                  userList.on('updated', function(list) {
-                    if (list.matchingItems.length === 0) {
-                      $(list.list).append(noItems);
-                    } else {
-                      noItems.detach();
-                    }
-                  });
-                }
-              };
-            searchFilter.init();
-            var options = {
-              valueNames: [ 'name', 'born' ]
-            };
-            var userList = new List('users', options);
+
             $scope.loadDone = false;
             $scope.disabledVideo = false;
             $scope.disableChat = false;
